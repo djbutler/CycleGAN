@@ -7,8 +7,8 @@ local options = {}
 local opt_train = {
    DATA_ROOT = '',         -- path to images (should have subfolders 'train', 'val', etc)
    batchSize = 1,          -- # images in batch
-   loadSize = 143,         -- scale images to this size
-   fineSize = 128,         --  then crop to this size
+   loadSize = 271,         -- scale images to this size (default=143)
+   fineSize = 256,         --  then crop to this size (default=128)
    ngf = 64,               -- #  of gen filters in first conv layer
    ndf = 64,               -- #  of discrim filters in first conv layer
    input_nc = 3,           -- #  of input image channels
@@ -18,9 +18,9 @@ local opt_train = {
    lr = 0.0002,            -- initial learning rate for adam
    beta1 = 0.5,            -- momentum term of adam
    ntrain = math.huge,     -- #  of examples per epoch. math.huge for full dataset
-   flip = 1,               -- if flip the images for data argumentation
+   flip = 0,               -- if flip the images for data argumentation
    display_id = 10,        -- display window id.
-   display_winsize = 128,  -- display window size
+   display_winsize = 256,  -- display window size
    display_freq = 25,      -- display the current results every display_freq iterations
    gpu = 1,                -- gpu = 0 is CPU mode. gpu=X is GPU mode on GPU X
    name = '',              -- name of the experiment, should generally be passed on the command line
@@ -54,8 +54,8 @@ local opt_train = {
 -- options for test
 local opt_test = {
   DATA_ROOT = '',           -- path to images (should have subfolders 'train', 'val', etc)
-  loadSize = 128,           -- scale images to this size
-  fineSize = 128,           --  then crop to this size
+  loadSize = 256,           -- scale images to this size (default=128)
+  fineSize = 256,           --  then crop to this size (default=128)
   flip = 0,                  -- horizontal mirroring data augmentation
   display = 1,              -- display samples while training. 0 = false
   display_id = 200,         -- display window id.
